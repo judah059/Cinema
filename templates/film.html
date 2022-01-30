@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="btn-group mx-auto" style="width: 200px;">
+    <a href="{% url 'logout' %}" class="btn btn-primary"> logout </a>
+    <a href="{% url 'hall' %}" class="btn btn-primary">Halls</a>
+    <a href="{% url 'sessions' %}" class="btn btn-primary"> Main </a>
+        {% if request.user.is_authenticated %}
+    <a href="{% url 'purchase' %}" class="btn btn-primary"> Purchases </a>
+        {% endif %}
+    {% if request.user.is_authenticated == False %}
+        <a href="{% url 'registration' %}" class="btn btn-primary"> Register </a>
+        <a href="{% url 'login' %}" class="btn btn-primary"> Login </a>
+    {% endif %}
+    </div>
+    </nav>
+    <div>
+    {% for obj in object_list %}
+        Name: {{ obj.name }}
+        <br>
+        Genre: {{ obj.genre }}
+        <br>
+        Film duration: {{ obj.length }}
+        <br>
+        Premier: {{ obj.start_premier }}-{{ obj.end_premier }}
+        <br>
+        Description: {{ obj.description }}
+        <hr>
+    {% endfor %}
+    {% if request.user.is_superuser %}
+    <form method="post" action="{% url 'film-create' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add film">
+    </form>
+    {% endif %}
+    </div>
+{% endblock %}

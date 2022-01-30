@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+    {% for obj in object_list %}
+        {{ obj.film_session.film.name }}
+        {{ obj.film_session.hall.name }}
+        {{ obj.film_session.price }}
+        {{ obj.count }}
+        {{ obj.created_at }}
+    {% endfor %}
+    You spent {{ total_exp.te }} for all time
+    </div>
+{% endblock %}

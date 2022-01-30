@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+    {{ object.film.name }}
+    {{ object.start }} - {{ object.end }}
+    Hall: {{ object.hall.name }}
+    Tickets: {{ object.hall_size }}
+    Price: {{ object.price }}
+        {% if request.user.is_superuser %}
+    <form method="get" action="{% url 'update-session' object.id%}">
+        <input type="submit" value="To edit">
+        </form>
+    {% endif %}
+    </div>
+    {% if request.user.is_authenticated %}
+    <form method="post" action="{% url 'sessions-detail' object.id%}">
+    {% csrf_token %}
+        {{ form }}
+    <input type="hidden" name="filmSession" value="{{ object.id }}">
+    <input type="submit" value="Buy ticket">
+    </form>
+    {% endif %}
+{% endblock %}
