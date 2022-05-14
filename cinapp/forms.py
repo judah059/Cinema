@@ -70,7 +70,7 @@ class FilmSessionForm(ModelForm):
         model = FilmSession
         fields = ['film', 'hall', 'start', 'end', 'price']
 
-    def clean(self):
+    def clean(self): # Валидация
         cleaned_data = super().clean()
         hall = cleaned_data.get('hall')
         start = cleaned_data.get('start')
