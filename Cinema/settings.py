@@ -143,4 +143,6 @@ TOKEN_TIME_TO_LIVE = 600
 
 # ASGI_APPLICATION = 'Cinema.asgi.application'
 
-test_for_git = ''
+test_for_git = 'test string name test git'
+
+
