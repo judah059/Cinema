@@ -144,5 +144,3 @@ TOKEN_TIME_TO_LIVE = 600
 SECRET_KEY = 'django-insecure-g$^nm)3*@x@4+1(nic5ki+-pqsu5+m+s445$9acss_*ykjs+cw'
 
 # ASGI_APPLICATION = 'Cinema.asgi.application'
-
-Andre_ver = 'pre 1.0'
