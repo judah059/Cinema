@@ -146,3 +146,5 @@ SECRET_KEY = 'django-insecure-g$^nm)3*@x@4+1(nic5ki+-pqsu5+m+s445$9acss_*ykjs+cw
 # ASGI_APPLICATION = 'Cinema.asgi.application'
 
 test_for_git = ''
+
+Andre_ver = 'pre 1.0'
