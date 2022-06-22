@@ -5,8 +5,44 @@ from django.db import models
 from rest_framework.authtoken.models import Token
 
 
+CITY_CHOICES = (
+    ('KV', 'Киев'),
+    ('DN', 'Днепр'),
+    ('ZP', 'Запорожье'),
+    ('NI', 'Николаев'),
+    ('CH', 'Херсон'),
+    ('CHA', 'Харьков'),
+    ('CHE', 'Хмельницкий'),
+    ('JI', 'Житомир'),
+    ('KR', 'Кривой Рог'),
+    ('MP', 'Мариуполь'),
+    ('RO', 'Ровное'),
+    ('CHER', 'Чернигов'),
+    ('LV', 'Львов'),
+    ('PL', 'Полтава'),
+    ('OD', 'Одесса'),
+    ('LC', 'Луцк'),
+    ('CHRS', 'Черкасы'),
+    ('SM', 'Сумы'),
+    ('VI', 'Вишневое'),
+    ('IF', 'Ивано-Франковск'),
+    ('BR', 'Бердянск'),
+    ('VN', 'Виница'),
+    ('SD', 'Северодонецк'),
+    ('NK', 'Новая Каховка'),
+    ('PG', 'Павлоград'),
+    ('KR', 'Краматорск'),
+    ('KRE', 'Кременчуг'),
+    ('PK', 'Покровск'),
+    ('BCH', 'Буча'),
+)
+
+
 class MyUser(AbstractUser):
-    wallet = models.DecimalField(max_digits=12, decimal_places=2, default=1000)
+    is_reviewer = models.BooleanField(default=False)
+    is_client = models.BooleanField(default=False)
+    city = models.CharField(max_length=300, choices=CITY_CHOICES)
+    # stripe_id = null // Не понимаю зач, но сказали сделать
 
 
 class Hall(models.Model):
