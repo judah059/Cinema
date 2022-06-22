@@ -40,7 +40,7 @@ class MyUser(AbstractUser):
     is_reviewer = models.BooleanField(default=False)
     is_client = models.BooleanField(default=False)
     city = models.CharField(max_length=300, choices=CITY_CHOICES)
-    # stripe_id = null // Не понимаю зач, но сказали сделать
+    # stripe_id = null / Не понимаю зач, но сказали сделать
 
 
 class Hall(models.Model):
